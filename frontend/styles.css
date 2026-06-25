@@ -1,0 +1,1129 @@
+/* =============================================================================
+   styles.css
+   AI-Powered Customer Review Sentiment Analysis System
+   Modern Enterprise SaaS Dashboard Theme (Stripe / Linear / Vercel inspired)
+   =============================================================================
+   TABLE OF CONTENTS
+   1.  Design Tokens (CSS Variables)
+   2.  Global Resets & Base
+   3.  App Shell / Background
+   4.  Sidebar
+   5.  Typography & Page Header
+   6.  Hero Section (Home)
+   7.  KPI / Stat Cards
+   8.  Generic Cards / Containers
+   9.  Buttons
+   10. Inputs, Textareas, Search, Selects
+   11. File Uploader / Drag-Drop
+   12. Prediction Result Card
+   13. Badges / Pills
+   14. Tables / DataFrames
+   15. Tabs / Expanders / Status / Progress
+   16. Quick Actions / Recent Activity / System Status
+   17. Footer
+   18. Animations
+   19. Responsive Breakpoints
+   ============================================================================= */
+:root{
+
+--font-base:'Inter',sans-serif;
+
+/* Background */
+
+--color-bg:#F8FAFC;
+
+/* Sidebar */
+
+--gradient-dark:#FFFFFF;
+--color-sidebar-hover:#F1F5F9;
+--color-sidebar-active:#2563EB;
+
+/* Cards */
+
+--color-card:#FFFFFF;
+
+/* Primary */
+
+--color-primary:#2563EB;
+--color-primary-hover:#1D4ED8;
+--color-primary-tint:#DBEAFE;
+
+/* Success */
+
+--color-success:#22C55E;
+--color-success-tint:#DCFCE7;
+
+/* Danger */
+
+--color-danger:#EF4444;
+--color-danger-tint:#FEE2E2;
+
+/* Warning */
+
+--color-warning:#F59E0B;
+--color-warning-tint:#FEF3C7;
+
+/* Text */
+
+--color-text:#111827;
+--color-text-secondary:#64748B;
+--color-text-on-dark:#111827;
+
+/* Border */
+
+--color-border:#E5E7EB;
+
+/* Gradients */
+
+--gradient-primary:
+linear-gradient(
+135deg,
+#2563EB,
+#1D4ED8
+);
+
+--gradient-success:
+linear-gradient(
+135deg,
+#22C55E,
+#16A34A
+);
+
+--gradient-danger:
+linear-gradient(
+135deg,
+#EF4444,
+#DC2626
+);
+
+--gradient-hero:
+linear-gradient(
+180deg,
+#FFFFFF,
+#F8FAFC
+);
+
+/* Radius */
+
+--radius-sm:8px;
+--radius-md:12px;
+--radius-lg:18px;
+--radius-xl:24px;
+--radius-pill:999px;
+
+/* Shadow */
+
+--shadow-xs:0 2px 6px rgba(15,23,42,.05);
+
+--shadow-sm:0 4px 10px rgba(15,23,42,.08);
+
+--shadow-md:0 10px 24px rgba(15,23,42,.10);
+
+--shadow-lg:0 20px 45px rgba(15,23,42,.12);
+
+--shadow-focus:0 0 0 4px rgba(37,99,235,.18);
+
+/* Spacing */
+
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:20px;
+--space-6:24px;
+--space-7:28px;
+--space-8:32px;
+--space-9:40px;
+--space-10:48px;
+
+/* Animation */
+
+--transition-fast:.2s;
+
+--transition-base:.3s;
+
+}
+
+/* =============================================================================
+   1. DESIGN TOKENS
+   ============================================================================= */
+.sidebar{
+    background:#FFFFFF;
+    border-right:1px solid #E5E7EB;
+}
+
+.sidebar h1,
+.sidebar h2,
+.sidebar h3{
+    color:#0F172A;
+}
+
+.sidebar p,
+.sidebar span{
+    color:#64748B;
+}
+
+.sidebar-footer{
+    border-top:1px solid #E5E7EB;
+}
+
+.sidebar-github-btn{
+    background:#2563EB;
+    color:white !important;
+    border-radius:12px;
+    padding:12px 18px;
+    font-weight:600;
+    text-align:center;
+    transition:.3s;
+}
+
+.sidebar-github-btn:hover{
+    background:#1D4ED8;
+}
+
+/* =============================================================================
+   2. GLOBAL RESETS & BASE
+   ============================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body, [class*="css"] {
+    font-family: var(--font-base) !important;
+    color: var(--color-text);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+/* Hide default Streamlit chrome for a cleaner SaaS feel */
+#MainMenu, footer, header[data-testid="stHeader"] {
+    visibility: hidden;
+    height: 0;
+}
+
+
+/* =============================================================================
+   3. APP SHELL / BACKGROUND
+   ============================================================================= */
+.stApp {
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.block-container {
+    padding-top: 1.6rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 1280px;
+}
+
+
+/* =============================================================================
+   4. SIDEBAR
+   ============================================================================= */
+section[data-testid="stSidebar"]{
+
+background:#FFFFFF;
+
+border-right:1px solid #E5E7EB;
+
+}
+/* Brand block */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--space-5) var(--space-5) var(--space-5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: var(--space-4);
+}
+
+.sidebar-brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+.sidebar-brand-text h1 {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color:#111827 !important;
+    margin: 0 !important;
+    line-height: 1.25;
+}
+
+.sidebar-brand-text span {
+    font-size: 11px;
+    color:#64748B;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+}
+
+/* Sidebar section labels */
+.sidebar-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0 var(--space-5);
+    margin: var(--space-2) 0 var(--space-2) 0;
+}
+
+/* Navigation radio -> styled as a vertical nav list */
+section[data-testid="stSidebar"] div[role="radiogroup"] {
+    padding: 0 var(--space-3);
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+section[data-testid="stSidebar"] div[role="radiogroup"] label {
+    background: transparent;
+    border-radius: var(--radius-md);
+    padding: 10px 14px !important;
+    margin: 1px 0 !important;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    width: 100%;
+}
+
+section[data-testid="stSidebar"] div[role="radiogroup"] label:hover {
+    background: var(--color-sidebar-hover);
+    transform: translateX(2px);
+}
+
+section[data-testid="stSidebar"] div[role="radiogroup"] label span {
+    color: var(--color-text-on-dark) !important;
+    font-size: 14.5px !important;
+    font-weight: 500 !important;
+}
+
+/* Hide native radio circle, we render icon+text inside the label text itself */
+section[data-testid="stSidebar"] div[role="radiogroup"] label > div:first-child {
+    display: none;
+}
+
+/* Selected nav item highlight (Streamlit marks aria-checked on the inner div) */
+section[data-testid="stSidebar"] div[role="radiogroup"] label[data-baseweb="radio"] input:checked + div,
+section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) {
+    background: var(--color-sidebar-active);
+    box-shadow: var(--shadow-sm);
+}
+
+section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) span {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+/* Sidebar status card */
+.sidebar-status-card {
+    margin: var(--space-4) var(--space-3);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--color-text-on-dark);
+    padding: 3px 0;
+}
+
+.sidebar-status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.dot-success { background: var(--color-success); box-shadow: 0 0 0 3px var(--color-success-tint); }
+.dot-danger { background: var(--color-danger); box-shadow: 0 0 0 3px var(--color-danger-tint); }
+
+/* Sidebar footer */
+.sidebar-footer {
+    margin-top: var(--space-6);
+    padding: var(--space-5);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+
+.sidebar-version-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #93C5FD;
+    background: rgba(59, 130, 246, 0.15);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    margin-top: 4px;
+}
+/* Developer Text */
+.sidebar-footer-dev{
+    color:#1F2937 !important;
+    font-size:15px;
+    font-weight:600;
+}
+
+.sidebar-footer-dev strong{
+    color:#2563EB !important;
+    font-weight:700;
+}
+
+/* GitHub Button */
+.sidebar-github-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:12px 16px;
+    margin-top:15px;
+
+    background:#2563EB;
+    color:white !important;
+
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.sidebar-github-btn:hover{
+    background:#1D4ED8;
+    color:white !important;
+}
+
+/* =============================================================================
+   5. TYPOGRAPHY & PAGE HEADER
+   ============================================================================= */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text) !important;
+    font-family: var(--font-base) !important;
+    letter-spacing: -0.01em;
+}
+
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.page-header-text h1 {
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    margin: 0 0 4px 0 !important;
+    color: var(--color-text) !important;
+}
+
+.page-header-text p {
+    font-size: 14.5px;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: 620px;
+}
+
+.page-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-tint);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: var(--space-3);
+    letter-spacing: 0.3px;
+}
+
+
+/* =============================================================================
+   6. HERO SECTION (HOME)
+   ============================================================================= */
+.hero-section {
+    background: var(--gradient-hero);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-8);
+    margin-bottom: var(--space-8);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, rgba(37, 99, 235, 0) 70%);
+    border-radius: 50%;
+}
+
+.hero-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 280px;
+}
+
+.hero-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0 0 var(--space-3) 0;
+    line-height: 1.18;
+}
+
+.hero-title .accent {
+    color: var(--color-primary);
+}
+
+.hero-description {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: var(--space-5);
+}
+
+.hero-illustration {
+    width: 180px;
+    height: 180px;
+    border-radius: var(--radius-xl);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 76px;
+    box-shadow: var(--shadow-lg);
+    flex-shrink: 0;
+    animation: float 5s ease-in-out infinite;
+}
+
+
+/* =============================================================================
+   7. KPI / STAT CARDS
+   ============================================================================= */
+.kpi-grid {
+    display: grid;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.kpi-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-5);
+    box-shadow: var(--shadow-xs);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.kpi-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+}
+
+.kpi-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.kpi-icon-primary { background: var(--gradient-primary); }
+.kpi-icon-success { background: var(--gradient-success); }
+.kpi-icon-danger { background: var(--gradient-danger); }
+.kpi-icon-warning { background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%); }
+
+.kpi-trend {
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+}
+
+.kpi-trend-up { color: var(--color-success); background: var(--color-success-tint); }
+.kpi-trend-down { color: var(--color-danger); background: var(--color-danger-tint); }
+.kpi-trend-neutral { color: var(--color-text-secondary); background: #F1F5F9; }
+
+.kpi-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.kpi-label {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+
+/* =============================================================================
+   8. GENERIC CARDS / CONTAINERS
+   ============================================================================= */
+.app-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-xs);
+    margin-bottom: var(--space-5);
+    transition: box-shadow var(--transition-base);
+}
+
+.app-card:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.app-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 var(--space-1) 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.app-card-subtitle {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+}
+
+.divider-line {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-5) 0;
+}
+
+
+/* =============================================================================
+   9. BUTTONS
+   ============================================================================= */
+.stButton > button {
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: var(--shadow-xs);
+    transition: transform var(--transition-fast), box-shadow var(--transition-base), filter var(--transition-fast);
+}
+
+.stButton > button:hover {
+    filter: brightness(1.06);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+}
+
+.stButton > button:focus-visible {
+    box-shadow: var(--shadow-focus);
+}
+
+/* Secondary buttons via kind="secondary" render with data-testid baseButton-secondary */
+.stButton > button[kind="secondary"] {
+    background: #FFFFFF;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+}
+
+.stButton > button[kind="secondary"]:hover {
+    background: #F1F5F9;
+    border-color: #CBD5E1;
+}
+
+.stDownloadButton > button {
+    background: #FFFFFF;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.stDownloadButton > button:hover {
+    background: var(--color-primary-tint);
+    transform: translateY(-1px);
+}
+
+
+/* =============================================================================
+   10. INPUTS, TEXTAREAS, SEARCH, SELECTS
+   ============================================================================= */
+.stTextArea textarea,
+.stTextInput input,
+.stNumberInput input {
+    background-color: #FFFFFF !important;
+    color: var(--color-text) !important;
+    border-radius: var(--radius-md) !important;
+    border: 1.5px solid var(--color-border) !important;
+    font-size: 14px !important;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.stTextArea textarea:focus,
+.stTextInput input:focus,
+.stNumberInput input:focus {
+    border-color: var(--color-primary) !important;
+    box-shadow: var(--shadow-focus) !important;
+}
+
+.stTextArea textarea::placeholder,
+.stTextInput input::placeholder {
+    color: #94A3B8 !important;
+}
+
+/* Selectbox */
+div[data-baseweb="select"] > div {
+    background-color: #FFFFFF !important;
+    border-radius: var(--radius-md) !important;
+    border: 1.5px solid var(--color-border) !important;
+}
+
+div[data-baseweb="select"] > div:hover {
+    border-color: #CBD5E1 !important;
+}
+
+/* Radio (used outside sidebar, e.g. filters) */
+div[role="radiogroup"] label {
+    color: var(--color-text) !important;
+}
+
+
+/* =============================================================================
+   11. FILE UPLOADER / DRAG-DROP
+   ============================================================================= */
+[data-testid="stFileUploader"] {
+    background: #FFFFFF;
+    border: 2px dashed #93C5FD;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-tint);
+}
+
+[data-testid="stFileUploaderDropzone"] {
+    background: transparent !important;
+}
+
+[data-testid="stFileUploader"] section {
+    border: none !important;
+    background: transparent !important;
+}
+
+.upload-hint-icon {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: var(--space-2);
+}
+
+
+/* =============================================================================
+   12. PREDICTION RESULT CARD
+   ============================================================================= */
+.result-card {
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin-top: var(--space-4);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    animation: fadeInUp var(--transition-base);
+}
+
+.result-positive {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.02));
+    border-left: 4px solid var(--color-success);
+}
+
+.result-negative {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.02));
+    border-left: 4px solid var(--color-danger);
+}
+
+.result-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.result-icon-positive { background: var(--gradient-success); }
+.result-icon-negative { background: var(--gradient-danger); }
+
+.result-body {
+    flex: 1;
+}
+
+.result-sentiment {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 4px 0;
+}
+
+.result-sentiment.positive { color: #15803D; }
+.result-sentiment.negative { color: #B91C1C; }
+
+.result-confidence-label {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-bottom: 6px;
+}
+
+
+/* =============================================================================
+   13. BADGES / PILLS
+   ============================================================================= */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 11px;
+    border-radius: var(--radius-pill);
+}
+
+.badge-success { color: #15803D; background: var(--color-success-tint); }
+.badge-danger { color: #B91C1C; background: var(--color-danger-tint); }
+.badge-warning { color: #B45309; background: var(--color-warning-tint); }
+.badge-neutral { color: var(--color-text-secondary); background: #F1F5F9; }
+
+
+/* =============================================================================
+   14. TABLES / DATAFRAMES
+   ============================================================================= */
+[data-testid="stDataFrame"] {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-xs);
+}
+
+[data-testid="stMetric"] {
+    background: var(--color-card);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-xs);
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--color-text-secondary) !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--color-text) !important;
+    font-weight: 800 !important;
+}
+
+
+/* =============================================================================
+   15. TABS / EXPANDERS / STATUS / PROGRESS
+   ============================================================================= */
+.stTabs [data-baseweb="tab-list"] {
+    gap: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.stTabs [data-baseweb="tab"] {
+    height: 42px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.stTabs [aria-selected="true"] {
+    color: var(--color-primary) !important;
+    border-bottom: 2px solid var(--color-primary) !important;
+}
+
+.streamlit-expanderHeader {
+    background: var(--color-card) !important;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--color-border) !important;
+    font-weight: 600 !important;
+    color: var(--color-text) !important;
+}
+
+.stProgress > div > div > div {
+    background: var(--gradient-primary) !important;
+    border-radius: var(--radius-pill) !important;
+}
+
+.stProgress > div > div {
+    background-color: #E2E8F0 !important;
+    border-radius: var(--radius-pill) !important;
+}
+
+[data-testid="stStatusWidget"] {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+
+/* =============================================================================
+   16. QUICK ACTIONS / RECENT ACTIVITY / SYSTEM STATUS
+   ============================================================================= */
+.quick-action-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    text-align: left;
+    box-shadow: var(--shadow-xs);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    height: 100%;
+}
+
+.quick-action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #BFDBFE;
+}
+
+.quick-action-icon {
+    font-size: 24px;
+    margin-bottom: var(--space-2);
+}
+
+.quick-action-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+
+.quick-action-desc {
+    font-size: 12.5px;
+    color: var(--color-text-secondary);
+}
+
+.activity-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.activity-row:last-child {
+    border-bottom: none;
+}
+
+.activity-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.activity-text {
+    font-size: 13.5px;
+    color: var(--color-text);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    flex-shrink: 0;
+}
+
+.status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 13.5px;
+}
+
+.status-row:last-child {
+    border-bottom: none;
+}
+
+
+/* =============================================================================
+   17. FOOTER
+   ============================================================================= */
+.footer-note {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 12px;
+    margin-top: var(--space-10);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-note strong {
+    color: var(--color-text);
+}
+
+
+/* =============================================================================
+   18. ANIMATIONS
+   ============================================================================= */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+}
+
+.app-card, .kpi-card, .hero-section {
+    animation: fadeIn 280ms ease;
+}
+
+.pulse-dot {
+    animation: pulse 2s infinite;
+}
+
+
+/* =============================================================================
+   19. RESPONSIVE BREAKPOINTS
+   ============================================================================= */
+
+/* Laptop */
+@media (max-width: 1200px) {
+    .block-container {
+        max-width: 100%;
+    }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .hero-grid {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .hero-illustration {
+        width: 130px;
+        height: 130px;
+        font-size: 54px;
+    }
+    .hero-title {
+        font-size: 27px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .page-header {
+        flex-direction: column;
+    }
+    .hero-section {
+        padding: var(--space-5);
+    }
+    .kpi-value {
+        font-size: 24px;
+    }
+    .result-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}

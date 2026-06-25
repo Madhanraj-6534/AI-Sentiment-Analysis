@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.streamlit/
+
+# Auto-generated runtime artifacts (regenerated automatically on first run)
+data/reviews.csv
+database/sentiment.db
+
+.DS_Store
+*.log
