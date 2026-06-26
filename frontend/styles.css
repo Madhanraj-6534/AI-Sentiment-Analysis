@@ -214,10 +214,11 @@ html, body, [class*="css"] {
 }
 
 /* Hide default Streamlit chrome for a cleaner SaaS feel */
-#MainMenu, footer, header[data-testid="stHeader"] {
+/*#MainMenu, footer, header[data-testid="stHeader"] {
     visibility: hidden;
     height: 0;
 }
+/*
 
 
 /* =============================================================================
@@ -1126,4 +1127,25 @@ div[role="radiogroup"] label {
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
     }
+}
+/* ---------- FIX STREAMLIT SIDEBAR ---------- */
+
+section[data-testid="stSidebar"]{
+    min-width:320px !important;
+    max-width:320px !important;
+    display:block !important;
+    visibility:visible !important;
+}
+
+button[kind="header"]{
+    display:block !important;
+}
+
+[data-testid="collapsedControl"]{
+    display:flex !important;
+}
+
+header[data-testid="stHeader"]{
+    display:block !important;
+    background:transparent !important;
 }
